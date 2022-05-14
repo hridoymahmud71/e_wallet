@@ -1,6 +1,7 @@
 # e_wallet
  A project made with laravel and react js to create a Electronic Wallet System
-
+### What does it implement ?
+ It' ann implementation of electroinc wallet for multi currency transfer
 ## Stack
 Laravel , ReactJs , Tailwind 
 
