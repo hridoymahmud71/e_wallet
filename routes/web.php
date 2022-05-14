@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontendController::class, 'init_frontend'])->name('frontend.init');
