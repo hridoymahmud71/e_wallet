@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Resources\UserResource;
+use App\Utility\CustomerUtility;
 use Auth;
 
 class AuthController extends Controller
@@ -41,6 +42,7 @@ class AuthController extends Controller
             'user_type'         => 'customer',
         ]);
 
+        CustomerUtility::create_customer($attr);
 
 
         return $this->loginSuccess(
@@ -67,14 +69,14 @@ class AuthController extends Controller
                 'password' => 'required'
             ], $messages);
 
-            if (!Auth::attempt($attr)) {
-                return response()->json(['result' => false, 'message' => 'Unauthorized', 'user' => null]);
-            }
+        if (!Auth::attempt($attr)) {
+            return response()->json(['result' => false, 'message' => 'Login Failed', 'user' => null], 401);
+        }
 
-            return $this->loginSuccess(
-                auth()->user()->createToken('API Token')->plainTextToken,
-                auth()->user()
-            );
+        return $this->loginSuccess(
+            auth()->user()->createToken('API Token')->plainTextToken,
+            auth()->user()
+        );
     }
 
     protected function login_success($token, $user)
