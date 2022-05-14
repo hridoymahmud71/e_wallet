@@ -37,8 +37,10 @@
         "tailwindcss": "^3.0.24"
     },
     "dependencies": {
+        "@reduxjs/toolkit": "^1.8.1",
         "react-router": "^5.3.1",
         "react-router-dom": "^6.3.0",
+        "redux": "^4.2.0",
         "tailwind": "^4.0.0"
     },
     "lint-staged": {
