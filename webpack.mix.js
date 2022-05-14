@@ -14,8 +14,8 @@ const tailwindcss = require("tailwindcss"); /* Add this line at the top */
  mix.setResourceRoot(process.env.MIX_ASSET_URL);
 
 
- mix.js("resources/app/app.js", "public/app/js/app.js")
- .sass("resources/app/app.scss", "public/app/css/app.css")
+ mix.js("resources/app/js/app.js", "public/app/js/app.js")
+ .sass("resources/app/css/app.scss", "public/app/css/app.css")
 .react()
 
  .options({

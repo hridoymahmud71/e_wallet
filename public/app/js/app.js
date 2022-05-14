@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./resources/app/app.js":
-/*!******************************!*\
-  !*** ./resources/app/app.js ***!
-  \******************************/
+/***/ "./resources/app/js/app.js":
+/*!*********************************!*\
+  !*** ./resources/app/js/app.js ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -35,10 +35,10 @@ react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime
 
 /***/ }),
 
-/***/ "./resources/app/app.scss":
-/*!********************************!*\
-  !*** ./resources/app/app.scss ***!
-  \********************************/
+/***/ "./resources/app/css/app.scss":
+/*!************************************!*\
+  !*** ./resources/app/css/app.scss ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -31253,8 +31253,8 @@ if (false) {} else {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["app/css/app"], () => (__webpack_require__("./resources/app/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["app/css/app"], () => (__webpack_require__("./resources/app/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["app/css/app"], () => (__webpack_require__("./resources/app/js/app.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["app/css/app"], () => (__webpack_require__("./resources/app/css/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
