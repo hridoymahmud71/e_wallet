@@ -24,7 +24,7 @@ class User extends Authenticatable
         'password',
         'email_verified_at',
         'email_verified_at',
-        'user_type'
+        'role'
     ];
 
     /**
@@ -46,7 +46,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function wallet()
+    public function user_wallet()
     {
         $this->hasOne(UserWallet::class);
     }

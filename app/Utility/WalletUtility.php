@@ -1,8 +1,11 @@
 <?php
 
+namespace App\Utility;
+
+
 use App\Models\UserWallet;
 use App\Models\UserWalletTransaction;
-use App\Utility;
+use Str;
 
 class WalletUtility
 {
