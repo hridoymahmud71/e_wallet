@@ -15,6 +15,7 @@ class CreateUserWalletsTable extends Migration
     {
         Schema::create('user_wallets', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->mediumText('wallet_number')->nullable();	
             $table->char('currency', 255)->default("usd");
             $table->decimal('balance', 20, 2)->default(0.00);	

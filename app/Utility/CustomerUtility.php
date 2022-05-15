@@ -26,6 +26,7 @@ class CustomerUtility
             
 
             $user_wallet = UserWallet::create([
+                'user_id'           => $user->id,
                 'wallet_number'     => WalletUtility::create_unique_wallet_number(),
                 'currency'          => 'usd',
                 'balance'           => 0.00,

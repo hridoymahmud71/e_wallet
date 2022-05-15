@@ -48,6 +48,6 @@ class User extends Authenticatable
 
     public function user_wallet()
     {
-        $this->hasOne(UserWallet::class);
+        return $this->hasOne(UserWallet::class);
     }
 }
