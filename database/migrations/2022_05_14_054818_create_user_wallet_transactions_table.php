@@ -15,6 +15,7 @@ class CreateUserWalletTransactionsTable extends Migration
     {
         Schema::create('user_wallet_transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->mediumText('transaction_number');
             $table->integer('sender_id');	
             $table->integer('receiver_id');
             $table->char('action', 255)->default("");	// transfer, recharge etc 
