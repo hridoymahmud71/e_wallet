@@ -12,6 +12,12 @@ Laravel , ReactJs , Tailwind
 * _ReactJs was integrated using laravel mixin, so you will not be able to run the frontend using serve_ 
 * Import the e_wallet.sql file (If you do not want to run migration and want to start with existing dummy data)
 
+#### How to create an admin ?
+* You have to create the admin manually
+* Make sure the role of the admin in _users_ table is "admin", also make sure the _email_verified_at_ is a proper timestamp and is not _null_  
+
+
+
 #### Does this allow subfolder ?
 Yes, it does run on a subfolder
 in .env file if there is no subfolder , make sure the variables are like this

@@ -38,3 +38,7 @@ Route::prefix('admin')->group(function () {
 // customer specific routes, make a separate file later
 Route::prefix('customer')->group(function () {
 });
+
+Route::fallback(function () {
+    return response()->json(['result' => false, 'message' => 'Url not found'], 404);
+});
