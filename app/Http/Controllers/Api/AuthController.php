@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
 use App\Utility\CustomerUtility;
 use Auth;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -14,6 +15,8 @@ class AuthController extends Controller
     {
 
         $messages = [
+            'name.required' => 'Name is required',
+            'name.max' => 'Maximum 255 characters for name',
             'email.required' => 'Email is required',
             'email.email' => 'Email must be a valid email address',
             'email.unique' => 'An user exists with this email',
@@ -22,19 +25,18 @@ class AuthController extends Controller
             'password.min' => 'Minimum 6 digits required for password',
         ];
 
-
-        $attr =
-            $request->validate([
-                'name' => 'required|string|max:255',
-                'phone' => 'nullable|string|unique:users,email',
-                'email' => 'required|string|email|unique:users,email',
-                'password' => 'required|string|min:6|confirmed'
-            ], $messages);
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:users,email',
+            'password' => 'required|string|min:6|confirmed'
+        ], $messages);
 
 
+        if ($validator->fails()) {
+            return response()->json(['result' => false, 'message' => 'Request is not valid', 'errors' => $validator->errors(), 'user' => null], 404);
+        }
 
-
-        $user =  CustomerUtility::create_customer($attr);
+        $user =  CustomerUtility::create_customer($request->all());
 
         if ($user == null) {
             return response()->json(['result' => false, 'message' => 'Could not creat user', 'user' => null], 404);
@@ -54,18 +56,19 @@ class AuthController extends Controller
             'email.required' => 'Email is required',
             'email.email' => 'Email must be a valid email address',
             'password.required' => 'Password is required',
-            'phone.required' => 'Phone is required',
         ];
 
 
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required'
+        ], $messages);
 
-        $attr =
-            $request->validate([
-                'email' => 'required|email',
-                'password' => 'required'
-            ], $messages);
+        if ($validator->fails()) {
+            return response()->json(['result' => false, 'message' => 'Request is not valid', 'errors' => $validator->errors(), 'user' => null], 404);
+        }
 
-        if (!Auth::attempt($attr)) {
+        if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             return response()->json(['result' => false, 'message' => 'Login Failed', 'user' => null], 401);
         }
 

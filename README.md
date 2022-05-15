@@ -28,4 +28,9 @@ BASENAME="/[path/to/subfolder]"
 MIX_ASSET_URL="/[path/to/subfolder]/public"
 ```
 
+#### Postman collection link
+```
+https://www.getpostman.com/collections/2b510d4c291a25bf3831
+```
+
 
