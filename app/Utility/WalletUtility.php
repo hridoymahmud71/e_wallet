@@ -8,7 +8,7 @@ class WalletUtility
 {
 
     // for identifying an unique user wallet
-    public function create_unique_wallet_number()
+    public static function create_unique_wallet_number()
     {
         $number = rand(1000000000000, 999999999999); // random 12 digit number
 
@@ -21,7 +21,7 @@ class WalletUtility
     }
 
     // for identifying a unique transaction
-    public function create_unique_transaction_number()
+    public static function create_unique_transaction_number()
     {
         $number = strtolower(Str::random(16)); // random 16 character lowercase alpha-numeric value
 

@@ -34,18 +34,16 @@ class AuthController extends Controller
             ], $messages);
 
 
-        $user = User::create([
-            'name'              => $attr['name'],
-            'password'          => bcrypt($attr['password']),
-            'email'             => $attr['email'],
-            'email_verified_at' => date("Y-m-d H:i:s"),
-            'user_type'         => 'customer',
-        ]);
-
-        CustomerUtility::create_customer($attr);
 
 
-        return $this->loginSuccess(
+        $user =  CustomerUtility::create_customer($attr);
+
+        if ($user == null) {
+            return response()->json(['result' => false, 'message' => 'Could not creat user', 'user' => null], 404);
+        }
+
+
+        return $this->login_success(
             $user->createToken('API Token')->plainTextToken,
             $user
         );
@@ -73,7 +71,7 @@ class AuthController extends Controller
             return response()->json(['result' => false, 'message' => 'Login Failed', 'user' => null], 401);
         }
 
-        return $this->loginSuccess(
+        return $this->login_success(
             auth()->user()->createToken('API Token')->plainTextToken,
             auth()->user()
         );
