@@ -7,9 +7,9 @@ use App\Models\UserWallet;
 use App\Utility\WalletUtility;
 use DB;
 
-class CustomerUtility
+class UserUtility
 {
-    public static function create_customer($request_data)
+    public static function create_user($request_data)
     {
 
         try {
@@ -20,7 +20,7 @@ class CustomerUtility
                 'password'          => bcrypt($request_data['password']),
                 'email'             => $request_data['email'],
                 'email_verified_at' => date("Y-m-d H:i:s")      ,
-                'role'              => 'customer',         
+                'role'              => 'user',         
             ]);
 
             
@@ -35,11 +35,13 @@ class CustomerUtility
 
             \DB::commit();
         } catch (\Exception  $e) {
-            dd($e);
+            //dd($e);
+            
             \DB::rollback();
             return null;
         } catch (\Throwable $th) {
-            dd($th);
+            //dd($th);
+            
             \DB::rollback();
             return null;
         }

@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
-use App\Utility\CustomerUtility;
+use App\Utility\UserUtility;
 use Auth;
 use Validator;
 
 class AuthController extends Controller
 {
-    public function customer_registration(Request $request)
+    public function user_registration(Request $request)
     {
 
         $messages = [
@@ -36,7 +36,7 @@ class AuthController extends Controller
             return response()->json(['result' => false, 'message' => 'Request is not valid', 'errors' => $validator->errors(), 'user' => null], 404);
         }
 
-        $user =  CustomerUtility::create_customer($request->all());
+        $user =  UserUtility::create_user($request->all());
 
         if ($user == null) {
             return response()->json(['result' => false, 'message' => 'Could not creat user', 'user' => null], 404);
