@@ -16,6 +16,12 @@ Laravel , ReactJs , Tailwind
 * You have to create the admin manually
 * Make sure the role of the admin in _users_ table is "admin", also make sure the _email_verified_at_ is a proper timestamp and is not _null_  
 
+#### How to create a customer ? / How can a customer sign up ?
+* Api for customer registration is implemented
+* However in front end there is not option to sign up at this moment
+* You should use the given postman collection to sign up a new customer
+ 
+
 
 
 #### Does this allow subfolder ?
