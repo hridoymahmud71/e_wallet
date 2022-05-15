@@ -28,14 +28,14 @@ class UserUtility
             $user_wallet = UserWallet::create([
                 'user_id'           => $user->id,
                 'wallet_number'     => WalletUtility::create_unique_wallet_number(),
-                'currency'          => 'usd',
+                'default_currency'  => 'usd',
                 'balance'           => 0.00,
 
             ]);
 
             \DB::commit();
         } catch (\Exception  $e) {
-            //dd($e);
+            dd($e);
             
             \DB::rollback();
             return null;

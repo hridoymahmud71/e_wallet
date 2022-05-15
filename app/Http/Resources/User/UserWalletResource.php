@@ -17,8 +17,8 @@ class UserWalletResource extends JsonResource
     {
         return [            
             'balance' => $this->balance,            
-            'currency' => $this->currency,
-            'balance_in_given_currency' => CurrencyConversionUtility::convert_from_usd($this->balance,$this->currency) ,                       
+            'default_currency' => $this->default_currency,
+            'balance_in_default_currency' => CurrencyConversionUtility::convert_from_usd($this->balance,$this->default_currency) ,                       
         ];
     }
 }

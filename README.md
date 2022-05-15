@@ -32,10 +32,12 @@ These api's below can be used to get a real time conversion rate
 * https://currencylayer.com
 * http://fixer.io
 
+We are using Open Exchange Rate, so make sure you put the **appId** for _openexchangerate_ in the ```.env``` file
+
 
 #### Does this allow subfolder ?
 Yes, it does run on a subfolder
-in .env file if there is no subfolder , make sure the variables are like this
+in ```.env``` file if there is no subfolder , make sure the variables are like this
 
 ```
 BASENAME="/"

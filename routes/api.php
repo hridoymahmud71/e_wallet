@@ -24,11 +24,12 @@ Route::get('/', function () {
 Route::prefix('auth')->group(function () {
 
     Route::get('/', function () {
-        return " auth_works";
+        return "auth_works";
     });
 
     Route::post('/user/registration', [AuthController::class, 'user_registration'])->name('api.auth.user_registration');
-    Route::post('/login', [AuthController::class, 'login'])->name('api.auth.login'); // for both admin and user
+    //Route::post('/login', [AuthController::class, 'login'])->name('api.auth.login'); // for both admin and user
+    Route::post('/login', [AuthController::class, 'login'])->name('login'); // for both admin and user
 });
 
 

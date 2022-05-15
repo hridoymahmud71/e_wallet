@@ -42,6 +42,10 @@ class AuthController extends Controller
             return response()->json(['result' => false, 'message' => 'Could not creat user', 'user' => null], 404);
         }
 
+        // Creating auth so that we do not have to do a separate sign in
+        if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            return response()->json(['result' => false, 'message' => 'Auth Failed', 'user' => null], 401);
+        }
 
         return $this->login_success(
             $user->createToken('API Token')->plainTextToken,

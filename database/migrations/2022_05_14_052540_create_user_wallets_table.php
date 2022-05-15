@@ -17,7 +17,7 @@ class CreateUserWalletsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->mediumText('wallet_number')->nullable();	
-            $table->char('currency', 255)->default("usd");
+            $table->char('default_currency', 255)->default("usd");
             $table->decimal('balance', 20, 2)->default(0.00);	
             $table->timestamps();
         });

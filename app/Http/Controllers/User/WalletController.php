@@ -10,8 +10,8 @@ class WalletController extends Controller
 {
 
     public function get_wallet_balance()
-    {
-        $user = auth()->user();
+    {        
+        $user = auth()->user();       
 
         if ($user == null || $user->user_wallet == null) {
             return response()->json(

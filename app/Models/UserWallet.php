@@ -15,7 +15,7 @@ class UserWallet extends Model
         'user_id',
         'wallet_number',
         'balance',
-        'currency'
+        'default_currency'
 
 
     ];
