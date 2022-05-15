@@ -84,7 +84,7 @@ class TransferController extends Controller
         }
 
         // 2. Amount Validation
-        if (empty($request_data['amount']) || !is_numeric($request_data['amount'])) {
+        if (empty($request_data['amount']) || !is_numeric($request_data['amount']) ||floatval($request_data['amount']) < 0.00) {
             return response()->json([
                 'result'    => false,
                 'message'   => "Given amount is invalid"
