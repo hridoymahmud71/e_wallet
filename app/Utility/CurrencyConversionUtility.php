@@ -19,7 +19,7 @@ class CurrencyConversionUtility
 
         $rate =  self::get_currency_rate($code);
 
-        return round($amount / $rate, 2 ) ;
+        return $rate > 0.00 ? round($amount / $rate, 2) : $amount;
     }
 
     public static function convert_from_usd($amount, $code = 'usd')
@@ -52,7 +52,12 @@ class CurrencyConversionUtility
 
         if ($current_response->ok()) {
             $rates = (array) $current_response->object()->rates;
-            return $rates[$upper_code];
+
+            if (isset($rates[$upper_code])) {
+                return $rates[$upper_code];
+            }
         }
+
+        return $rate;
     }
 }
