@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Http\Resources\UserResource;
 use App\Utility\CustomerUtility;
 use Auth;
@@ -22,7 +21,6 @@ class AuthController extends Controller
             'password.confirmed' => 'Password confirmation does not match',
             'password.min' => 'Minimum 6 digits required for password',
         ];
-
 
 
         $attr =

@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,20 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 // auth specific routes
 Route::prefix('auth')->group(function () {
-    Route::post('/login', [AuthController::class])->name('login'); // for both admin and customer
-    Route::post('/customer/registration', [AuthController::class])->name('customer.registration');
+    
+    Route::post('/login', [AuthController::class,'login'])->name('api.auth.login'); // for both admin and customer
+    Route::post('/customer/registration', [AuthController::class,'customer_registration'])->name('api.auth.customer_registration');
 });
 
-// admin specific routes
+// admin specific routes, make a separate file later
 Route::prefix('admin')->group(function () {
 
-    
 });
 
-// customer specific routes
+// customer specific routes, make a separate file later
 Route::prefix('customer')->group(function () {
+});
 
-    
+Route::fallback(function () {
+    return response()->json(['result' => false, 'message' => 'Url not found'], 404);
 });
