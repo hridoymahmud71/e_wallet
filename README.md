@@ -20,8 +20,17 @@ Laravel , ReactJs , Tailwind
 * Api for user registration is implemented
 * However in front end there is not option to sign up at this moment
 * You should use the given postman collection to sign up a new user
- 
 
+#### How can we add a currency ?
+* Add a new currency with valid currency code in the currency table
+* Make sure the _active_ column has value '1'
+* Currency codes needs to be valid in order to get conversion rate correct
+
+#### Currency converion public api's
+These api's below can be used to get a real time conversion rate
+* https://openexchangerates.org
+* https://currencylayer.com
+* http://fixer.io
 
 
 #### Does this allow subfolder ?

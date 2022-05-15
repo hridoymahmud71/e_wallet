@@ -18,9 +18,8 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,            
-            'wallet_balance' => $this->user_wallet->balance,            
-            'currency' => $this->user_wallet->currency,            
-            
+            'wallet' => $this->user_wallet ? new UserWalletResource($this->user_wallet) : null,            
+                    
         ];
     }
 }
