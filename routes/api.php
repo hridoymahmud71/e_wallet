@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\CronjobController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,10 @@ Route::get('/', function () {
     return "api_works";
 });
 
-
+// cronjob specific routes
+Route::prefix('cronjob')->group(function () {
+    Route::get('/update-exchange-rates', [CronjobController::class, 'update_exchange_rates'])->name('api.update_exchange_rates');
+});
 
 // auth specific routes
 Route::prefix('auth')->group(function () {
@@ -26,6 +30,7 @@ Route::prefix('auth')->group(function () {
     Route::get('/', function () {
         return "auth_works";
     });
+
 
     Route::post('/user/registration', [AuthController::class, 'user_registration'])->name('api.auth.user_registration');
     //Route::post('/login', [AuthController::class, 'login'])->name('api.auth.login'); // for both admin and user
