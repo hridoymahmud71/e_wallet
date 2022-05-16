@@ -18,7 +18,7 @@ class UserRegistrationTest extends TestCase
             'Accept' => '*/*',
             'Content-Type' => 'application/json'
         ];
-        //$header = [];
+        
         $this->json('POST', '/api/auth/user/registration', $data, $header)
             ->assertJsonFragment([
                 'result'   => false,
