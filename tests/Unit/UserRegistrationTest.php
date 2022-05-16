@@ -7,7 +7,7 @@ use Tests\TestCase;
 class UserRegistrationTest extends TestCase
 {
 
-    public function testSignupWithoutData()
+    public function testSignupWithInvalidData()
     {
 
         $data = [];
@@ -17,10 +17,9 @@ class UserRegistrationTest extends TestCase
         ];
         //$header = [];
         $this->json('POST', '/api/auth/user/registration', $data, $header)
-            ->assertStatus(404);
-        // ->assertJsonFragment([
-        //     'result'   => false,
-        // ]);
+            ->assertJsonFragment([
+                'result'   => false,                               
+            ]);   
     }
 
     public function testSignupWithSmallPassword()
@@ -38,10 +37,9 @@ class UserRegistrationTest extends TestCase
         ];
         
         $this->json('POST', '/api/auth/user/registration', $data, $header)
-            ->assertStatus(404);
-        // ->assertJsonFragment([
-        //     'result'   => false,
-        // ]);
+        ->assertJsonFragment([
+            'result'   => false,                               
+        ]);       
     }
 
     public function testSignupWithDuplicateEmail()
@@ -59,10 +57,9 @@ class UserRegistrationTest extends TestCase
         ];
         
         $this->json('POST', '/api/auth/user/registration', $data, $header)
-            ->assertStatus(404);
-        // ->assertJsonFragment([
-        //     'result'   => false,
-        // ]);
+        ->assertJsonFragment([
+            'result'   => false,                               
+        ]);        
     }
 
     public function testSignupWithPerfectData()
@@ -79,10 +76,9 @@ class UserRegistrationTest extends TestCase
             'Content-Type' => 'application/json'
         ];
 
-        $this->json('POST', '/api/auth/user/registration', $data, $header)
-            ->assertStatus(200);
-        // ->assertJsonFragment([
-        //     'result'   => false,
-        // ]);
+        $this->json('POST','/api/auth/user/registration', $data, $header)
+        ->assertJsonFragment([
+            'result'   => true,                               
+        ]);        
     }
 }
