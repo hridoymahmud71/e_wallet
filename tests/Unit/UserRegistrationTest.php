@@ -3,6 +3,9 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
+use Faker\Generator as Faker;
+use App\Models\User;
+
 
 class UserRegistrationTest extends TestCase
 {
@@ -18,8 +21,8 @@ class UserRegistrationTest extends TestCase
         //$header = [];
         $this->json('POST', '/api/auth/user/registration', $data, $header)
             ->assertJsonFragment([
-                'result'   => false,                               
-            ]);   
+                'result'   => false,
+            ]);
     }
 
     public function testSignupWithSmallPassword()
@@ -35,11 +38,11 @@ class UserRegistrationTest extends TestCase
             'Accept' => '*/*',
             'Content-Type' => 'application/json'
         ];
-        
+
         $this->json('POST', '/api/auth/user/registration', $data, $header)
-        ->assertJsonFragment([
-            'result'   => false,                               
-        ]);       
+            ->assertJsonFragment([
+                'result'   => false,
+            ]);
     }
 
     public function testSignupWithDuplicateEmail()
@@ -55,30 +58,45 @@ class UserRegistrationTest extends TestCase
             'Accept' => '*/*',
             'Content-Type' => 'application/json'
         ];
-        
+
         $this->json('POST', '/api/auth/user/registration', $data, $header)
-        ->assertJsonFragment([
-            'result'   => false,                               
-        ]);        
+            ->assertJsonFragment([
+                'result'   => false,
+            ]);
     }
 
     public function testSignupWithPerfectData()
     {
+        // $data = [
+        //     "name" => "Customer Hundred",
+        //     "email" => "customer100@example.com",
+        //     "password" => "123456",
+        //     "password_confirmation" => "123456"
+        // ];
 
-        $data = [
-            "name" => "Customer Hundred",
-            "email" => "customer100@example.com",
+        $faker = \Faker\Factory::create();
+
+        $fake_email = $faker->unique()->safeEmail;
+        while (User::where('email', '=', $fake_email)->exists()) {
+            $fake_email = $faker->unique()->safeEmail;
+        }
+
+        $data =   [
+            'name' => $faker->name,
+            'email' => $faker->unique()->email,
             "password" => "123456",
             "password_confirmation" => "123456"
         ];
+
+
         $header = [
             'Accept' => '*/*',
             'Content-Type' => 'application/json'
         ];
 
-        $this->json('POST','/api/auth/user/registration', $data, $header)
-        ->assertJsonFragment([
-            'result'   => true,                               
-        ]);        
+        $this->json('POST', '/api/auth/user/registration', $data, $header)
+            ->assertJsonFragment([
+                'result'   => true,
+            ]);
     }
 }
