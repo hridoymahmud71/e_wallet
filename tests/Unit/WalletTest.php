@@ -4,7 +4,6 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Models\User;
-use Illuminate\Testing\Fluent\AssertableJson;
 
 class WalletTest extends TestCase
 {
