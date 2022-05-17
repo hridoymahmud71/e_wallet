@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Admin\UserWithTransactionResource;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\UserWalletTransaction;
 
 class TransactionController extends Controller
 {
@@ -39,9 +38,10 @@ class TransactionController extends Controller
     }
 
     public function get_users_with_transactions()
-    {       
+    {   
+        $limit  = request()->limit ?? 10;    
 
-        $users = User::roleUser()->withCount('user_wallet_transactions')->withSum('user_wallet_transactions','amount_in_usd')->paginate(10);
+        $users = User::roleUser()->withCount('user_wallet_transactions')->withSum('user_wallet_transactions','amount_in_usd')->paginate($limit);
 
         return UserWithTransactionResource::collection($users);
 

@@ -35,6 +35,17 @@ Route::prefix('auth')->group(function () {
     Route::post('/user/registration', [AuthController::class, 'user_registration'])->name('api.auth.user_registration');
     //Route::post('/login', [AuthController::class, 'login'])->name('api.auth.login'); // for both admin and user
     Route::post('/login', [AuthController::class, 'login'])->name('login'); // for both admin and user
+
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::get('/logout', [AuthController::class, 'logout'])->name('api.logout');
+    });
+});
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+
+    Route::get('/get-wallet-balance', [WalletController::class, 'get_wallet_balance'])->name('api.user.get_wallet_balance');
+    Route::post('/initiate-transfer', [TransferController::class, 'initiate_transfer'])->name('api.user.initiate_transfer');
+    Route::get('/transactions', [TransactionController::class, 'get_transactions'])->name('api.user.transactions');
 });
 
 

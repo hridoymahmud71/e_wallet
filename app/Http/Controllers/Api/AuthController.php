@@ -95,4 +95,44 @@ class AuthController extends Controller
             200
         );
     }
+
+    public function logout()
+    {
+
+        try {
+
+            if (request()->from_everywhere && request()->from_everywhere == 'yes') {
+                auth()->user()->tokens()->delete();
+            } else {
+                auth()->user()->currentAccessToken()->delete();
+            }
+
+
+            return response()->json(
+                [
+                    'result' => true,
+                    'message'   => 'Successfully logged out'
+                ],
+                200
+            );
+        } catch (\Exception $e) {
+
+            return response()->json(
+                [
+                    'result' => false,
+                    'message'   => 'Log out error'
+                ],
+                200
+            );
+        } catch (\Throwable $th) {
+
+            return response()->json(
+                [
+                    'result' => false,
+                    'message'   => 'Log out error'
+                ],
+                200
+            );
+        }
+    }
 }

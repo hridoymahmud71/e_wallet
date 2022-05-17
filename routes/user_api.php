@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\TransactionController;
 use App\Http\Controllers\User\TransferController;
 use App\Http\Controllers\User\WalletController;
 use Illuminate\Support\Facades\Route;
@@ -14,5 +15,6 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth:sanctum','is_role:user
 
     Route::get('/get-wallet-balance', [WalletController::class, 'get_wallet_balance'])->name('api.user.get_wallet_balance');
     Route::post('/initiate-transfer', [TransferController::class, 'initiate_transfer'])->name('api.user.initiate_transfer');
+    Route::get('/transactions', [TransactionController::class, 'get_transactions'])->name('api.user.transactions');
 
 });
