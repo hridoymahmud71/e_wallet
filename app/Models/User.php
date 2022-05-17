@@ -46,6 +46,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function scopeRoleUser()
+    {
+        return $this->where('role','user');
+    }
+
     public function user_wallet()
     {
         return $this->hasOne(UserWallet::class);
