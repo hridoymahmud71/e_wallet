@@ -50,4 +50,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserWallet::class);
     }
+
+    public function user_wallet_transactions()
+    {
+        return $this->hasMany(UserWalletTransaction::class,'sender_id');
+    }
+
+    public function user_wallet_received_transactions()
+    {
+        return $this->hasMany(UserWalletTransaction::class,'receiver_id');
+    }
 }

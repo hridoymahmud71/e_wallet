@@ -51,6 +51,13 @@ class TransferController extends Controller
             ]);
         }
 
+        if ($sender->id ==  $receiver->id) {
+            return response()->json([
+                'result'    => false,
+                'message'   => "You cannot send money to yourself"
+            ]);
+        }
+
         //dd($sender, $receiver);
 
         $sending_amount_in_usd = floatval(CurrencyConversionUtility::convert_to_usd($request_data['amount'], $sender->user_wallet->default_currency));

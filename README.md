@@ -35,7 +35,7 @@ These api's below can be used to get a real time conversion rate
 We are using Open Exchange Rate, so make sure you put the **appId** for _openexchangerate_ in the ```.env``` file
 
 #### Does this need cronjob ?
-* Yes , the **exchage_rates** table must have valid data
+* Yes , the **exchage_rates** table must have valid data, at least run this once so before registering users
 * cronjob url [projectroot]/api/cronjob/update-exchange-rates , run this every hour to get the latest rates
 
 #### Does this allow subfolder ?
