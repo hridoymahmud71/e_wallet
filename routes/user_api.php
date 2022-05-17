@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // user specific routes
-Route::group(['prefix' => 'user',  'middleware' => ['auth:sanctum']],function () {
+Route::group(['prefix' => 'user',  'middleware' => ['auth:sanctum','is_role:user']],function () {
 
     Route::get('/', function () {
         return "user_api_works";

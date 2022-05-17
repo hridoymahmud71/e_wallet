@@ -5,7 +5,7 @@ namespace App\Http\Resources\Admin;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\User\UserWalletResource;
 
-class UserWithTransactionSummaryResource extends JsonResource
+class UserWithTransactionCountResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,7 +19,10 @@ class UserWithTransactionSummaryResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,            
-            'wallet' => $this->user_wallet ? new UserWalletResource($this->user_wallet) : null,        
+            'wallet' => $this->user_wallet ? new UserWalletResource($this->user_wallet) : null,
+            'transaction' => [
+                'count' => $this->user_wallet_transactions_count
+            ]        
         ];
     }
 }
