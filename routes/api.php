@@ -41,14 +41,6 @@ Route::prefix('auth')->group(function () {
     });
 });
 
-Route::group(['middleware' => ['auth:sanctum']], function () {
-
-    Route::get('/get-wallet-balance', [WalletController::class, 'get_wallet_balance'])->name('api.user.get_wallet_balance');
-    Route::post('/initiate-transfer', [TransferController::class, 'initiate_transfer'])->name('api.user.initiate_transfer');
-    Route::get('/transactions', [TransactionController::class, 'get_transactions'])->name('api.user.transactions');
-});
-
-
 
 
 Route::fallback(function () {
