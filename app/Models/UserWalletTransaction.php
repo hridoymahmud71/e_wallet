@@ -10,17 +10,18 @@ class UserWalletTransaction extends Model
     use HasFactory;
 
 
-    public function scopeSenderOrReceiver($user_id){
-        return $this->where('sender_id','=',$user_id)->orWhere('receiver_id','=',$user_id);
+    public function scopeSenderOrReceiver($query, $user_id)
+    {
+        return $query->where('sender_id', '=', $user_id)->orWhere('receiver_id', '=', $user_id);
     }
 
     public function sender()
     {
-        return $this->belongsTo(User::class,'sender_id');
-    }    
+        return $this->belongsTo(User::class, 'sender_id');
+    }
 
     public function receiver()
     {
-        return $this->belongsTo(User::class,'receiver_id');
+        return $this->belongsTo(User::class, 'receiver_id');
     }
 }
