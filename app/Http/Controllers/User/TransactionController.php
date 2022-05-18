@@ -19,7 +19,6 @@ class TransactionController extends Controller
             ->latest()
             ->paginate($limit);
 
-
         return TransactionResource::collection($transactions);
     }
 }
