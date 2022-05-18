@@ -1,15 +1,20 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
-import GlobalSuspenseLoader from './components/GlobalSuspenseLoader'
+import GlobalSuspenseLoader from './components/GlobalSuspenseLoader';
+import { BrowserRouter } from "react-router-dom";
+import Helper from "./utils/Helper";
+
 
 // main app starts from here
 function App() {
 
     return (
-        <Suspense 
-        fallback={<GlobalSuspenseLoader/>}
+        <Suspense
+            fallback={<GlobalSuspenseLoader />}
         >
-            <div className="bg-blue-200">Hello world</div>
+            <BrowserRouter basename={Helper.get_basename()}>
+                <div className="bg-blue-200">Hello world</div>
+            </BrowserRouter>
         </Suspense>
     );
 }

@@ -20,6 +20,6 @@ class FrontendController extends Controller
       'app_name' => $app_name,      
   ];
 
-    return view('frontend.app', [$settings]);
+    return view('frontend.app', compact('settings'));
   }
 }
