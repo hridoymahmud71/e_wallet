@@ -5,7 +5,8 @@
 ## Stack
 Laravel , ReactJs , Tailwind 
 
-
+## PHP Version 
+Built and tested in php 7.4
 
 #### How to run
 * Just run it like a laravel project by hitting url, not with serve 
