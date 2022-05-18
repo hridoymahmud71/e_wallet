@@ -1,10 +1,14 @@
 import React from 'react'
-import RouteWiseContent from './RouteWiseContent';
+import AdminRouting from '../routing/AdminRouting';
+import CommonRouting from '../routing/CommonRouting';
+import UserRouting from '../routing/UserRouting';
 
 function Layout() {
     return (
         <div className="flex flex-col min-h-screen">
-            <RouteWiseContent/>
+            <AdminRouting/>
+            <UserRouting/>
+            <CommonRouting/>
         </div>
     )
 }

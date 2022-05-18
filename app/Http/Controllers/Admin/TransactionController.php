@@ -50,8 +50,9 @@ class TransactionController extends Controller
         return UserWithTransactionResource::collection($users);
     }
 
-    public function get_third_highest_transaction_of_an_user($user_id)
+    public function get_nth_highest_transaction_of_an_user($user_id)
     {
+        $n  = request()->n ?? 1;
 
         $user = User::find($user_id);
 
@@ -80,10 +81,14 @@ class TransactionController extends Controller
         //     ->first();
 
 
-        // limit 1 offset 2 , this was done rather than using subquery
-        $transaction =  UserWalletTransaction::senderOrReceiver($user_id)
-            ->orderBy('amount_in_usd', 'DESC')
-            ->skip(2)->take(1)->first();
+        // limit 1 offset n-1 , this was done rather than using subquery
+        $transaction_query =  UserWalletTransaction::query();      
+            
+        if ($n > 1) {
+            $transaction_query->skip($n - 1);
+        }
+
+        $transaction  = $transaction_query->senderOrReceiver($user_id)->orderBy('amount_in_usd', 'DESC')->take(1)->first();
 
 
         if ($transaction == null) {
