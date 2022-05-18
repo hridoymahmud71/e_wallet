@@ -35,6 +35,10 @@
 
     </style>
 
+<script>
+    window.app_settings = @json($settings);    
+</script>
+
 </head>
 
 <body>
