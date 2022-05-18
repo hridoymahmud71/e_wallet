@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/demo/create-admin/{email}/{password}/{signal}', [DemoController::class, 'create_admin'])->name('demo.create_admin');
 
 Route::get('/', [FrontendController::class, 'init_frontend'])->name('frontend.init');
+Route::get('/{slug}', [FrontendController::class, 'init_frontend'])->name('frontend.init');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2022 at 05:13 PM
+-- Generation Time: May 18, 2022 at 05:07 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -311,7 +311,8 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (7, 'App\\Models\\User', 2, 'API Token', '4b9cf4cd107adc863999ac0760db7e517dfb87172692439068017203ce046fd8', '[\"*\"]', NULL, '2022-05-17 03:17:20', '2022-05-17 03:17:20'),
 (8, 'App\\Models\\User', 2, 'API Token', '3e7de6109607e796dca12f4e79216d33c6c9323c340ce78bcdcf1ba58ca1b879', '[\"*\"]', '2022-05-17 03:28:41', '2022-05-17 03:21:15', '2022-05-17 03:28:41'),
 (9, 'App\\Models\\User', 3, 'API Token', '1d1586e866f1e97f42db93f0ee60a85ca2be667d0197974df15c7a33a1bb1183', '[\"*\"]', '2022-05-17 05:13:47', '2022-05-17 03:29:24', '2022-05-17 05:13:47'),
-(17, 'App\\Models\\User', 1, 'API Token', '3f57d7c06f224f0e50a5d034d620ffdd12cfcc3ca4d517c641ba48c6026e4781', '[\"*\"]', '2022-05-17 09:08:55', '2022-05-17 08:54:13', '2022-05-17 09:08:55');
+(17, 'App\\Models\\User', 1, 'API Token', '3f57d7c06f224f0e50a5d034d620ffdd12cfcc3ca4d517c641ba48c6026e4781', '[\"*\"]', '2022-05-18 02:26:42', '2022-05-17 08:54:13', '2022-05-18 02:26:42'),
+(18, 'App\\Models\\User', 6, 'API Token', 'ec8e1a3e8a683e41bbba95524b220f32cff7a54ff711f349ee2d55bfda74236d', '[\"*\"]', '2022-05-18 07:32:26', '2022-05-18 02:26:58', '2022-05-18 07:32:26');
 
 -- --------------------------------------------------------
 
@@ -503,7 +504,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users`
