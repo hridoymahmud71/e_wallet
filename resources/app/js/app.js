@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import GlobalSuspenseLoader from './components/GlobalSuspenseLoader';
 import { BrowserRouter } from "react-router-dom";
 import Helper from "./utils/Helper";
+import Layout from "./components/common/Layout";
 
 
 // main app starts from here
@@ -13,7 +14,7 @@ function App() {
             fallback={<GlobalSuspenseLoader />}
         >
             <BrowserRouter basename={Helper.get_basename()}>
-                <div className="bg-blue-200">Hello world</div>
+                <Layout/>
             </BrowserRouter>
         </Suspense>
     );
