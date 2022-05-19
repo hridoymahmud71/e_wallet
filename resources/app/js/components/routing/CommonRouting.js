@@ -9,7 +9,7 @@ function CommonRouting() {
   return (
     <Routes>
       <Route path="/login" element={<Login/>} />
-      <Route path="/user/*" element={<UserRouting/>} />
+      <Route path="/*" element={<UserRouting/>} />
       <Route path="/admin/*" element={<AdminRouting/>} />
       <Route path="/404" element={<Nomatch/>} />
       <Route path="*" element={<Nomatch/>} />
