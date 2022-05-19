@@ -6,10 +6,7 @@ import UserRouting from '../routing/UserRouting';
 
 function Layout() {
     return (
-        <div className="flex flex-col min-h-screen">
-            
-            <AdminRouting/>
-            <UserRouting/>
+        <div className="flex flex-col min-h-screen">            
             <CommonRouting/>
         </div>
     )
