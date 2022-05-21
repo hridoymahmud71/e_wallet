@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TransferRepository from "./../../../repositories/user/TransferRepository";
 import { useSnackbar } from "react-simple-snackbar";
-
+import Bottombar from './../partials/Bottombar';
 import { useSelector } from "react-redux";
 
 
@@ -10,6 +10,7 @@ function Transfer() {
     const user = useSelector((state) => state.UserReducer.user);
     const [openSnackbar, closeSnackbar] = useSnackbar();
 
+    const [transferSuccessful, setTransferSuccessful] = useState(false);
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [formData, setformData] = useState({
         wallet_number: "",
@@ -49,6 +50,7 @@ function Transfer() {
 
         TransferRepository.initiate_transfer(post_body)
             .then((response) => {
+              console.log(response)
                 if (response.data.result == false) {
                     openSnackbar(response.data.message, 2500);
                     setFormSubmitted(false);
@@ -57,11 +59,14 @@ function Transfer() {
 
                 openSnackbar(response.data.message, 2500);
                 setFormSubmitted(false);
-
-                dispatch(setUser(response.data.user, response.data.token));
+                resetformData();
+                MYAPP.navigate('/');
+                
+               
             })
             .catch((error) => {
                 setFormSubmitted(false);
+                resetformData();
                 if (error && error.response.data.message) {
                     openSnackbar(error.response.data.message, 2500);
                 }
@@ -74,7 +79,8 @@ function Transfer() {
 
     return (
         <>
-            <div className="container mx-auto p-8 h-screen">
+        <div className="flex flex-col min-h-screen">
+        <div className="container flex items-center mx-auto p-8 h-screen">
                 <div className="max-w-md w-full mx-auto">
                     <h1 className="text-4xl text-center mb-8 font-thin">
                         Transfer
@@ -99,7 +105,7 @@ function Transfer() {
 
                                 <div className="mb-5">
                                     <label className="block mb-2 text-sm font-medium text-gray-600">
-                                        Amount{" "}{user.wallet_balance}
+                                        Amount{" ("}{`${user != null ? user.wallet.default_currency.toUpperCase() : "" }`}{") "}
                                     </label>
 
                                     <input
@@ -121,9 +127,14 @@ function Transfer() {
                         </div>
                     </div>
 
-                    <Bottombar />
+                    
                 </div>
             </div>
+            {/* to match bottombar height */}
+            <div className="h-20"></div>
+                <Bottombar />
+        </div>
+            
         </>
     );
 }

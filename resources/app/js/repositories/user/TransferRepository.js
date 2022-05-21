@@ -1,3 +1,4 @@
+import {api} from './../../Api'
 class TranferRepository {
 
     static initiate_transfer = (post_body) => {

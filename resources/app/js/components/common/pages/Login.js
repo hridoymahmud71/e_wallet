@@ -4,7 +4,6 @@ import { setUser } from "./../../../redux/user/UserAction";
 import { useSnackbar } from "react-simple-snackbar";
 import AuthRepository from "./../../../repositories/AuthRepository";
 
-
 function Login() {
     const dispatch = useDispatch();
     //const user = useSelector((state) => state.user);
@@ -17,7 +16,9 @@ function Login() {
         password: "",
     });
 
-    useEffect(() => {}, []);
+    useEffect(() => {
+        scrollTo(0, 0);
+    }, []);
 
     // handle form
     const handleOnChange = (e) => {
@@ -42,7 +43,6 @@ function Login() {
         }
 
         setFormSubmitted(true);
-        
 
         var post_body = {
             email: formData.email,
@@ -60,10 +60,7 @@ function Login() {
                 openSnackbar(response.data.message, 2500);
                 setFormSubmitted(false);
 
-                dispatch(setUser(response.data.user,response.data.token));
-
-
-                
+                dispatch(setUser(response.data.user, response.data.token));
             })
             .catch((error) => {
                 setFormSubmitted(false);
@@ -88,7 +85,6 @@ function Login() {
                 resetformData();
                 setFormSubmitted(false);
             });
-
     };
 
     return (
@@ -101,10 +97,7 @@ function Login() {
 
                     <div className="bg-white rounded-lg overflow-hidden shadow-2xl">
                         <div className="p-8">
-                            <form
-                                className=""
-                                onSubmit={handleFormtSubmit}
-                            >
+                            <form className="" onSubmit={handleFormtSubmit}>
                                 <div className="mb-5">
                                     <label className="block mb-2 text-sm font-medium text-gray-600">
                                         Email

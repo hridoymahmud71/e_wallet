@@ -44,6 +44,10 @@ class Helper {
             return def;
         }
 
+        if (loc_data == null) {
+            return def;
+        }
+
         loc_data = loc_data.trim();
         return JSON.parse(loc_data) ?? def;
     }
