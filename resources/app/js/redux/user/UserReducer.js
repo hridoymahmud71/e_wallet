@@ -1,7 +1,8 @@
-import { USER } from './../../utils/Constants';
+import { USER } from "./../../utils/Constants";
 
 const initialState = {
     user: null,
+    user_currency: "",
 };
 
 export default function UserReducer(state = initialState, action) {
@@ -16,6 +17,12 @@ export default function UserReducer(state = initialState, action) {
                 ...state,
                 user: null,
             };
+        case USER.SET_USER_CURRENCY:          
+
+        return {
+            ...state,
+            user_currency: action.payload.currency,
+        };
         default:
             return state;
     }

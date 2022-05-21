@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import WalletRepository from "./../../../../../repositories/user/WalletRepository";
 import Shimmer from "react-shimmer-effect";
+import { useSelector } from "react-redux";
 
 function Balance() {
+
+    const user_currency = useSelector((state) => state.UserReducer.user_currency);
+
     const [balane, setBalance] = useState(null);
     const [balaneLoading, setBalanceLoading] = useState(true);
 
@@ -55,7 +59,7 @@ function Balance() {
                 <div className="bg-white rounded-lg overflow-hidden shadow-2xl">
                     <div className="p-8 flex flex-col items-center">
                     <div className="block mb-2 text-lg font-medium text-gray-800">
-                            {`${balane.balance_in_default_currency} ${balane.default_currency.toUpperCase()}`}
+                            {`${balane.balance_in_default_currency} ${user_currency.toUpperCase()}`}
                         </div>
                         <div className="block text-md font-medium text-gray-600">
                             {`${balane.balance} USD`}

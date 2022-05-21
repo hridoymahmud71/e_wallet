@@ -13,6 +13,15 @@ export function setUser(user, token) {
     }
 }
 
+export function setUserCurrency(currency) {
+    return {
+        type: USER.SET_USER_CURRENCY,
+        payload: {
+            currency
+        }
+    }
+}
+
 export function clearUser() {
     setUserToken("");
     return {

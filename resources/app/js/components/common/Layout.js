@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import CommonRouting from "../routing/CommonRouting";
 import { useNavigate } from "react-router-dom";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import AuthRepository from "./../../repositories/AuthRepository";
-import Helper from './../../utils/Helper';
-import * as Constants from './../../utils/Constants';
-import {setUser} from './../../redux/user/UserAction'
+import Helper from "./../../utils/Helper";
+import * as Constants from "./../../utils/Constants";
+import { setUser, setUserCurrency } from "./../../redux/user/UserAction";
 
 function Layout() {
     const dispatch = useDispatch();
@@ -24,13 +24,11 @@ function Layout() {
         ) {
             fetchUser();
         }
-        
     }, []);
 
     useEffect(() => {
         console.log(user);
         if (user != null) {
-            
             if (user.role == "user") {
                 MYAPP.navigate("/");
             } else if (user.role == "admin") {
@@ -56,6 +54,13 @@ function Layout() {
                 console.log(response.data);
 
                 dispatch(setUser(response.data.user, response.data.token));
+                if (response.data.user.wallet != null) {
+                    dispatch(
+                        setUserCurrency(
+                            response.data.user.wallet.default_currency
+                        )
+                    );
+                }
             })
             .catch((error) => {
                 if (error) {

@@ -4,9 +4,11 @@ import { useSnackbar } from "react-simple-snackbar";
 import Bottombar from "./../partials/Bottombar";
 import Shimmer from "react-shimmer-effect";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setUserCurrency } from "../../../redux/user/UserAction";
 
 function Settings() {
+    const dispatch = useDispatch();
     const user = useSelector((state) => state.UserReducer.user);
     const [openSnackbar, closeSnackbar] = useSnackbar();
 
@@ -16,6 +18,7 @@ function Settings() {
     const [currencyListLoaded, setCurrencyListLoaded] = useState(false);
 
     useEffect(() => {
+        console.log("here", user);
         if (user != null) {
             setSelectedCurrency(user.wallet.default_currency);
         }
@@ -49,11 +52,19 @@ function Settings() {
     }
 
     const handleCurrencyClick = (code) => (event) => {
+        console.log(currencyTapped);
         if (currencyTapped) {
             return;
         }
         setCurrencyTapped(true);
+
+        setCurrency(code);
     };
+
+    function processCurrencySet(code) {
+        setSelectedCurrency(code);
+        dispatch(setUserCurrency(code));
+    }
 
     function setCurrency(code) {
         var post_body = {
@@ -67,12 +78,14 @@ function Settings() {
                     setCurrencyTapped(false);
                     return;
                 }
-
+                setCurrencyTapped(false);
                 openSnackbar(response.data.message, 2500);
+
+                processCurrencySet(code);
             })
             .catch((error) => {
-                setFormSubmitted(false);
-                if (error && error.response.data.message) {
+                setCurrencyTapped(false);
+                if (error) {
                 }
             })
             .then(function () {

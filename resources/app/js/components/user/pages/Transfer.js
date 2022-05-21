@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 function Transfer() {
   
     const user = useSelector((state) => state.UserReducer.user);
+    const user_currency = useSelector((state) => state.UserReducer.user_currency);
+
     const [openSnackbar, closeSnackbar] = useSnackbar();
 
     const [transferSuccessful, setTransferSuccessful] = useState(false);
@@ -105,7 +107,7 @@ function Transfer() {
 
                                 <div className="mb-5">
                                     <label className="block mb-2 text-sm font-medium text-gray-600">
-                                        Amount{" ("}{`${user != null ? user.wallet.default_currency.toUpperCase() : "" }`}{") "}
+                                        Amount{" ("}{`${user_currency.toUpperCase()}`}{") "}
                                     </label>
 
                                     <input

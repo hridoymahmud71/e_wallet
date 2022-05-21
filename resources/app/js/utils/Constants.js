@@ -9,6 +9,7 @@ export const LOCAL_STORAGE_KEYS = {
 export const USER = {
     SET_USER: "SET_USER",   
     CLEAR_USER: "CLEAR_USER",   
+    SET_USER_CURRENCY: "SET_USER_CURRENCY",   
 };
 
 // navigation
