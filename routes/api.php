@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CurrencyController;
 use App\Http\Controllers\CronjobController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return "api_works";
 });
+
+Route::get('/currencies', [CurrencyController::class, 'get_currencies'])->name('api.currencies');
 
 // cronjob specific routes
 Route::prefix('cronjob')->group(function () {

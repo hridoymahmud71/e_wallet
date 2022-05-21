@@ -14,4 +14,9 @@ class Currency extends Model
         'name',
         'active',
     ];
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', '=', 1);
+    }
 }
