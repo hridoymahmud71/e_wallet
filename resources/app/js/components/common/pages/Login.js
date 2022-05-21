@@ -63,7 +63,7 @@ function Login() {
                 dispatch(setUser(response.data.user,response.data.token));
 
 
-                MYAPP.navigate("/");
+                
             })
             .catch((error) => {
                 setFormSubmitted(false);

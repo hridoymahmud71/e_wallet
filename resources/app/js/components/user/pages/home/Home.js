@@ -1,4 +1,5 @@
 import React from "react";
+import Bottombar from "../../partials/Bottombar";
 import Balance from "./sections/Balance";
 import Transactions from "./sections/Transactions";
 
@@ -11,9 +12,10 @@ function Home() {
                         Home
                     </h1>
                     <Balance />
-                    <div className="mt-4">
-                     <Transactions />
+                    <div className="mt-12">
+                        <Transactions />
                     </div>
+                    <Bottombar/>
                 </div>
             </div>
         </>
