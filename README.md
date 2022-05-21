@@ -16,6 +16,7 @@ Built and tested in php 7.4
 #### How to create an admin ?
 * You have to create the admin manually
 * Make sure the role of the admin in _users_ table is "admin", also make sure the _email_verified_at_ is a proper timestamp and is not _null_  
+* You can use this route : ```/demo/create-admin/{email}/{password}/{signal}``` from ```web.php``` 
 
 #### How to create a user ? / How can a user sign up ?
 * Api for user registration is implemented
@@ -26,6 +27,7 @@ Built and tested in php 7.4
 * Add a new currency with valid currency code in the currency table
 * Make sure the _active_ column has value '1'
 * Currency codes needs to be valid in order to get conversion rate correct
+* php artisan db:seed --class=CurrencySeeder //this seeder can be used in a fresh migration
 
 #### Currency converion public api's
 These api's below can be used to get a real time conversion rate
