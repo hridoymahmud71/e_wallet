@@ -2,7 +2,7 @@ import React from 'react'
 
 function Nomatch() {
   return (
-    <div>Nomatch</div>
+    <div>404 not found</div>
   )
 }
 

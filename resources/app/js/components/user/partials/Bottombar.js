@@ -39,11 +39,11 @@ function Bottombar() {
 
                 <div
                     className="flex flex-col flex-1 items-center cursor-pointer"
-                    onClick={() => MYAPP.navigate("/settings")}
+                    onClick={() => MYAPP.navigate("/transfer")}
                 >
                     <div
                         className={`text-lg ${
-                            location.pathname == "/settings"
+                            location.pathname == "/transfer"
                                 ? "text-gray-800"
                                 : "text-gray-400"
                         }`}
@@ -52,7 +52,7 @@ function Bottombar() {
                     </div>
                     <div
                         className={`fs-10 font-normal my-2 ${
-                            location.pathname == "/settings"
+                            location.pathname == "/transfer"
                                 ? "text-gray-800"
                                 : "text-gray-400"
                         }`}
@@ -63,11 +63,11 @@ function Bottombar() {
 
                 <div
                     className="flex flex-col flex-1 items-center cursor-pointer"
-                    onClick={() => MYAPP.navigate("/transfer")}
+                    onClick={() => MYAPP.navigate("/settings")}
                 >
                     <div
                         className={`text-lg ${
-                            location.pathname == "/transfer"
+                            location.pathname == "/settings"
                                 ? "text-gray-800"
                                 : "text-gray-400"
                         }`}
@@ -76,7 +76,7 @@ function Bottombar() {
                     </div>
                     <div
                         className={`fs-10 font-normal my-2 ${
-                            location.pathname == "/transfer"
+                            location.pathname == "/settings"
                                 ? "text-gray-800"
                                 : "text-gray-400"
                         }`}
@@ -86,7 +86,7 @@ function Bottombar() {
                 </div>
                 <div
                     className="flex flex-col flex-1 items-center cursor-pointer"
-                    onClick={() => MYAPP.navigate("/transfer")}
+                    onClick={() => MYAPP.navigate("/logout")}
                 >
                     <div
                         className={`text-lg text-red-600`}
