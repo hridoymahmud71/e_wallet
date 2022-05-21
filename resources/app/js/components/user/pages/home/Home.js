@@ -1,6 +1,6 @@
 import React from "react";
-import Transfer from "../Transfer";
 import Balance from "./sections/Balance";
+import Transactions from "./sections/Transactions";
 
 function Home() {
     return (
@@ -11,7 +11,9 @@ function Home() {
                         Home
                     </h1>
                     <Balance />
-                    <Transfer />
+                    <div className="mt-4">
+                     <Transactions />
+                    </div>
                 </div>
             </div>
         </>
