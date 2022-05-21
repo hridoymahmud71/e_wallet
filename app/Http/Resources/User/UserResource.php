@@ -18,6 +18,7 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,            
+            'role' => $this->role,            
             'wallet' => $this->user_wallet ? new UserWalletResource($this->user_wallet) : null,            
                     
         ];

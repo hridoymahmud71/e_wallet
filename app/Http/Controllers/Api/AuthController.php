@@ -8,6 +8,8 @@ use App\Http\Resources\User\UserResource;
 use App\Utility\UserUtility;
 use Auth;
 use Validator;
+use Laravel\Sanctum\PersonalAccessToken;
+
 
 class AuthController extends Controller
 {
@@ -93,6 +95,47 @@ class AuthController extends Controller
                 'message'   => 'Successfully logged in'
             ],
             200
+        );
+    }
+
+    public function fetch_authenticated_user(Request $request)
+    {
+
+        $token = PersonalAccessToken::findToken($request->token);
+        if (!$token) {
+            return response()->json(
+                [
+                    'result' => false,
+                    'token'  => "",
+                    'user'   => null,
+                    'message'   => 'No Token Found'
+                ],
+                401
+            );
+        }
+
+        $user = $token->tokenable;
+
+        if ($user != null) {
+            return response()->json(
+                [
+                    'result' => true,
+                    'token'  => $request->token,
+                    'user'   => new UserResource($user),
+                    'message'   => 'User Found'
+                ],
+                200
+            );
+        }
+
+        return response()->json(
+            [
+                'result' => false,
+                'token'  => "",
+                'user'   => null,
+                'message'   => 'No User Found'
+            ],
+            401
         );
     }
 

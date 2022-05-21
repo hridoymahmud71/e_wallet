@@ -38,7 +38,14 @@ class Helper {
     }
 
     static getFromLocalStorage(key, def = null) {
-        return JSON.parse(localStorage.getItem(key)) ?? def;
+        let loc_data = localStorage.getItem(key);
+
+        if (loc_data === "undefined" || typeof loc_data === "undefined") {
+            return def;
+        }
+
+        loc_data = loc_data.trim();
+        return JSON.parse(loc_data) ?? def;
     }
 
     static api_path() {

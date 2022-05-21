@@ -17,7 +17,8 @@ class FrontendController extends Controller
     $settings = [
       'basename' => $basename,
       'app_url' => $app_url,
-      'app_name' => $app_name,      
+      'app_url' => $app_url,
+      'api_path' => "$app_url/api",      
   ];
 
     return view('frontend.app', compact('settings'));

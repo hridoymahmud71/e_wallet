@@ -36,6 +36,7 @@
     </style>
 
 <script>
+    var MYAPP = {};
     window.app_settings = @json($settings);    
 </script>
 

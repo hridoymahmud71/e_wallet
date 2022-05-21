@@ -34,7 +34,8 @@ Route::prefix('auth')->group(function () {
 
     Route::post('/user/registration', [AuthController::class, 'user_registration'])->name('api.auth.user_registration');
     //Route::post('/login', [AuthController::class, 'login'])->name('api.auth.login'); // for both admin and user
-    Route::post('/login', [AuthController::class, 'login'])->name('login'); // for both admin and user
+    Route::post('/login', [AuthController::class, 'login'])->name('api.login'); // for both admin and user
+    Route::post('/fetch-authenticated-user', [AuthController::class, 'fetch_authenticated_user'])->name('api.fetch_authenticated_user'); // for both admin and user
 
     Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/logout', [AuthController::class, 'logout'])->name('api.logout');
