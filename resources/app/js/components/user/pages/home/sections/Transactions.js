@@ -23,7 +23,7 @@ function Transactions() {
     }, []);
 
     useEffect(() => {
-        console.table(list);
+        //console.table(list);
     }, [list]);
 
     function fetchData() {

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
-import AdminRouting from "../routing/AdminRouting";
 import CommonRouting from "../routing/CommonRouting";
-import UserRouting from "../routing/UserRouting";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import AuthRepository from "./../../repositories/AuthRepository";
+import Helper from './../../utils/Helper';
+import * as Constants from './../../utils/Constants';
+import {setUser} from './../../redux/user/UserAction'
 
 function Layout() {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [mounted, setMounted] = useState(false);
     const user = useSelector((state) => state.UserReducer.user);
@@ -13,10 +16,21 @@ function Layout() {
     useEffect(() => {
         MYAPP.navigate = navigate;
         setMounted(true);
+
+        if (
+            Helper.getFromLocalStorage(
+                Constants.LOCAL_STORAGE_KEYS.USER_TOKEN
+            ) != null
+        ) {
+            fetchUser();
+        }
+        
     }, []);
 
     useEffect(() => {
+        console.log(user);
         if (user != null) {
+            
             if (user.role == "user") {
                 MYAPP.navigate("/");
             } else if (user.role == "admin") {
@@ -29,6 +43,26 @@ function Layout() {
 
     if (!mounted) {
         return "";
+    }
+
+    function fetchUser() {
+        AuthRepository.fetch_authenticated_user()
+            .then((response) => {
+                if (response.data.result == false) {
+                    MYAPP.navigate("/login");
+                    return;
+                }
+
+                console.log(response.data);
+
+                dispatch(setUser(response.data.user, response.data.token));
+            })
+            .catch((error) => {
+                if (error) {
+                    MYAPP.navigate("/login");
+                }
+            })
+            .then(function () {});
     }
 
     return (

@@ -5,7 +5,7 @@ import Helper from './../../utils/Helper';
 
 export function userFetched() {
     return {
-        type: USER.SET_USER,
+        type: NAVIGATION.USER_FETCHED,
         payload: {
             userFetched:true
         }
