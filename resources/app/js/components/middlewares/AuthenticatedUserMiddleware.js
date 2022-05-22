@@ -21,6 +21,8 @@ function AuthenticatedUserMiddleware({ children, role }) {
             ) != null
         ) {
             fetchUser();
+        } else {
+            MYAPP.navigate("/login");
         }
     }, []);
 
