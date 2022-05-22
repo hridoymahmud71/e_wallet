@@ -11,7 +11,7 @@ function Bottombar() {
 
     return (
         <>
-            <div className="bg-white border h-20 fixed w-full bottom-0 flex items-center justify-around px-8">
+            <div className="bg-white border h-20 fixed w-full bottom-0 flex items-center justify-around px-8 md:px-16 lg:px-32">
                 <div
                     className="flex flex-col flex-1 items-center cursor-pointer"
                     onClick={() => MYAPP.navigate("/admin")}
