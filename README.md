@@ -41,6 +41,12 @@ We are using Open Exchange Rate, so make sure you put the **appId** for _openexc
 * Yes , the **exchage_rates** table must have valid data, at least run this once so before registering users
 * cronjob url [projectroot]/api/cronjob/update-exchange-rates , run this every hour to get the latest rates
 
+#### .env  file configuration
+* Please make sure ```APP_URL``` has a valid value it should be something like [yourdomain/if_subfolder] with no trailing slash
+* The api path is determined by ```APP_URL```, if it is incorrect, your frontend will not be able to connect with your backend
+* More **.env** settings will be found in this section:  __Does this allow subfolder ?__
+
+
 #### Does this allow subfolder ?
 Yes, it does run on a subfolder
 in ```.env``` file if there is no subfolder , make sure the variables are like this
@@ -56,6 +62,7 @@ if you have subfolder the variables should be like:
 BASENAME="/[path/to/subfolder]"
 MIX_ASSET_URL="/[path/to/subfolder]/public"
 ```
+
 
 #### Postman collection link
 ```
