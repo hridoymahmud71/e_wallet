@@ -23,7 +23,7 @@ export function setUserCurrency(currency) {
 }
 
 export function clearUser() {
-    setUserToken("");
+    setUserToken(null);
     return {
         type: USER.CLEAR_USER,
     }

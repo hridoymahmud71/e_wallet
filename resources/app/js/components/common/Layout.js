@@ -17,24 +17,24 @@ function Layout() {
         MYAPP.navigate = navigate;
         setMounted(true);
 
-        if (
-            Helper.getFromLocalStorage(
-                Constants.LOCAL_STORAGE_KEYS.USER_TOKEN
-            ) != null
-        ) {
-            fetchUser();
-        }
+        // if (
+        //     Helper.getFromLocalStorage(
+        //         Constants.LOCAL_STORAGE_KEYS.USER_TOKEN
+        //     ) != null
+        // ) {
+        //     fetchUser();
+        // }
     }, []);
 
     useEffect(() => {
         if (user != null) {
-            if (user.role == "user") {
-                MYAPP.navigate("/");
-            } else if (user.role == "admin") {
-                MYAPP.navigate("/admin");
-            } else {
-                MYAPP.navigate("/login");
-            }
+            // if (user.role == "user") {
+            //     MYAPP.navigate("/");
+            // } else if (user.role == "admin") {
+            //     MYAPP.navigate("/admin");
+            // } else {
+            //     MYAPP.navigate("/login");
+            // }
         }
     }, [user]);
 
