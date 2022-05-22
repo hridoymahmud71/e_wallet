@@ -35,7 +35,7 @@ function NthHighestTransaction({ transaction, transactionLoaded }) {
                         <div className="px-4">{` to `}</div>
                         <div>{transaction.receiver.name}</div>
                     </div>
-                    <div className="text-sm font-medium text-blue-600 flex items-center  w-full">
+                    <div className="mt-1 text-sm font-medium text-blue-600 flex items-center  w-full">
                         <div>{`${transaction.amount_in_usd} USD`}</div>
                         <div className="px-1">{` / `}</div>
                         <div>{`${
