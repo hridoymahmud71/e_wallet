@@ -30,7 +30,7 @@ function Balance() {
             })
             .catch((error) => {
                 setBalanceLoading(false);
-                if (error && error.response.data.message) {
+                if (error) {
                 }
             })
             .then(function () {

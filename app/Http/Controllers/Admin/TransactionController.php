@@ -14,7 +14,7 @@ class TransactionController extends Controller
     public function get_user_with_most_conversions()
     {
 
-        $user_with_most_conversions = User::roleUser()->withCount('user_wallet_transactions')->orderBy('user_wallet_transactions_count', 'desc')->first();
+        $user_with_most_conversions = User::roleUser()->withCount('user_wallet_transactions')->withSum('user_wallet_transactions', 'amount_in_usd')->orderBy('user_wallet_transactions_count', 'desc')->first();
 
 
         if ($user_with_most_conversions != null && $user_with_most_conversions->user_wallet_transactions_count > 0) {

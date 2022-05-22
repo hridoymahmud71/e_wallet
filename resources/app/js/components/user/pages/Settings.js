@@ -18,7 +18,6 @@ function Settings() {
     const [currencyListLoaded, setCurrencyListLoaded] = useState(false);
 
     useEffect(() => {
-        console.log("here", user);
         if (user != null) {
             setSelectedCurrency(user.wallet.default_currency);
         }
@@ -52,7 +51,6 @@ function Settings() {
     }
 
     const handleCurrencyClick = (code) => (event) => {
-        console.log(currencyTapped);
         if (currencyTapped) {
             return;
         }

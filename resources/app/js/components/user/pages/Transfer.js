@@ -52,7 +52,6 @@ function Transfer() {
 
         TransferRepository.initiate_transfer(post_body)
             .then((response) => {
-                console.log(response);
                 if (response.data.result == false) {
                     openSnackbar(response.data.message, 2500);
                     setFormSubmitted(false);

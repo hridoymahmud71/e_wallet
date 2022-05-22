@@ -27,7 +27,6 @@ function Layout() {
     }, []);
 
     useEffect(() => {
-        console.log(user);
         if (user != null) {
             if (user.role == "user") {
                 MYAPP.navigate("/");
@@ -50,8 +49,6 @@ function Layout() {
                     MYAPP.navigate("/login");
                     return;
                 }
-
-                console.log(response.data);
 
                 dispatch(setUser(response.data.user, response.data.token));
                 if (response.data.user.wallet != null) {
