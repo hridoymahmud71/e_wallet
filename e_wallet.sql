@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2022 at 05:07 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: May 22, 2022 at 04:29 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,6 +35,18 @@ CREATE TABLE `currencies` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `currencies`
+--
+
+INSERT INTO `currencies` (`id`, `code`, `name`, `active`, `created_at`, `updated_at`) VALUES
+(1, 'usd', 'US Doller', 1, NULL, NULL),
+(2, 'eur', 'Euro', 1, NULL, NULL),
+(3, 'gbp', 'British pound', 1, NULL, NULL),
+(4, 'inr', 'Indian Rupee', 1, NULL, NULL),
+(5, 'bdt', 'Bangladeshi Taka', 1, NULL, NULL),
+(6, 'pkr', 'Pakistani Rupee', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -312,7 +324,28 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (8, 'App\\Models\\User', 2, 'API Token', '3e7de6109607e796dca12f4e79216d33c6c9323c340ce78bcdcf1ba58ca1b879', '[\"*\"]', '2022-05-17 03:28:41', '2022-05-17 03:21:15', '2022-05-17 03:28:41'),
 (9, 'App\\Models\\User', 3, 'API Token', '1d1586e866f1e97f42db93f0ee60a85ca2be667d0197974df15c7a33a1bb1183', '[\"*\"]', '2022-05-17 05:13:47', '2022-05-17 03:29:24', '2022-05-17 05:13:47'),
 (17, 'App\\Models\\User', 1, 'API Token', '3f57d7c06f224f0e50a5d034d620ffdd12cfcc3ca4d517c641ba48c6026e4781', '[\"*\"]', '2022-05-18 02:26:42', '2022-05-17 08:54:13', '2022-05-18 02:26:42'),
-(18, 'App\\Models\\User', 6, 'API Token', 'ec8e1a3e8a683e41bbba95524b220f32cff7a54ff711f349ee2d55bfda74236d', '[\"*\"]', '2022-05-18 07:32:26', '2022-05-18 02:26:58', '2022-05-18 07:32:26');
+(18, 'App\\Models\\User', 6, 'API Token', 'ec8e1a3e8a683e41bbba95524b220f32cff7a54ff711f349ee2d55bfda74236d', '[\"*\"]', '2022-05-18 07:32:26', '2022-05-18 02:26:58', '2022-05-18 07:32:26'),
+(19, 'App\\Models\\User', 1, 'API Token', '4ca62a552e6d7f172d10c4b34877335bb5b4c245d172fb73144bfd42704defb1', '[\"*\"]', NULL, '2022-05-21 05:19:26', '2022-05-21 05:19:26'),
+(20, 'App\\Models\\User', 1, 'API Token', '1e3590341d205757cd52b1071598d9340eb9b18d2e3e7a6db91f2b73f0375270', '[\"*\"]', NULL, '2022-05-21 05:19:49', '2022-05-21 05:19:49'),
+(21, 'App\\Models\\User', 1, 'API Token', 'b8fab998b7cf05cb5033a84478a51494fa8b092c982fd8cd71d0ae661c7184c7', '[\"*\"]', NULL, '2022-05-21 05:19:51', '2022-05-21 05:19:51'),
+(23, 'App\\Models\\User', 1, 'API Token', '23c0ada0e62d1169e33db8cc267b55352385115916b59edb0625bc87a2ab5e58', '[\"*\"]', NULL, '2022-05-21 05:44:07', '2022-05-21 05:44:07'),
+(24, 'App\\Models\\User', 1, 'API Token', 'c12835b7a56c38c88140f016e91bb62c34dcfad79718fe92edc0ebd4d5bc6a65', '[\"*\"]', NULL, '2022-05-21 05:45:27', '2022-05-21 05:45:27'),
+(25, 'App\\Models\\User', 1, 'API Token', '2d932530dcdca8e72fab645a0965b2d59a93ad4b23a14ae66a06b0568eb94259', '[\"*\"]', '2022-05-21 16:14:40', '2022-05-21 05:51:54', '2022-05-21 16:14:40'),
+(26, 'App\\Models\\User', 1, 'API Token', 'c9e9bf22454f34d92447a5452009792105e7c6992a94ea5b79a9de4891d92086', '[\"*\"]', NULL, '2022-05-21 17:12:45', '2022-05-21 17:12:45'),
+(27, 'App\\Models\\User', 1, 'API Token', '739dbe7f111c2c0d8a7306f4ee12462ca4603336ba79c08f479914dd2cacd706', '[\"*\"]', NULL, '2022-05-21 17:32:35', '2022-05-21 17:32:35'),
+(28, 'App\\Models\\User', 1, 'API Token', 'd850b342b26ba3e3a9462372a1f03f4cd5378c468770b2ddb32b9e63b23df400', '[\"*\"]', NULL, '2022-05-22 00:34:42', '2022-05-22 00:34:42'),
+(29, 'App\\Models\\User', 6, 'API Token', 'ac8dd77c244a8b36f30ea7fc162f6f1483f02313b3329b61fab4ee048996f6cd', '[\"*\"]', NULL, '2022-05-22 01:14:09', '2022-05-22 01:14:09'),
+(30, 'App\\Models\\User', 6, 'API Token', 'fd617ea4a35beba1fd828fa578918f59c15159c0babf9009328072e2246a7b26', '[\"*\"]', '2022-05-22 04:17:09', '2022-05-22 01:25:02', '2022-05-22 04:17:09'),
+(31, 'App\\Models\\User', 6, 'API Token', '16a945ceb86d13fce7763e5d52e20108bd7e7d546f2c6cd261061334b32cf6a8', '[\"*\"]', '2022-05-22 04:33:42', '2022-05-22 01:31:43', '2022-05-22 04:33:42'),
+(32, 'App\\Models\\User', 6, 'API Token', '0a14412439cebe53ed862e5c49d419924a76212ecafd82a095077db8710586cc', '[\"*\"]', NULL, '2022-05-22 07:29:24', '2022-05-22 07:29:24'),
+(33, 'App\\Models\\User', 1, 'API Token', '966299ad1e66e2e289cfbc0e288e862ad29d79f1eb106571e35714f50107d607', '[\"*\"]', NULL, '2022-05-22 07:31:42', '2022-05-22 07:31:42'),
+(34, 'App\\Models\\User', 6, 'API Token', '3404021d587e6217dc604a6aab72b0cee0f0a58bc8b5287bf8ed93b041d26f37', '[\"*\"]', NULL, '2022-05-22 07:33:11', '2022-05-22 07:33:11'),
+(35, 'App\\Models\\User', 6, 'API Token', '6f2f3845db2e91f3dfb07ff9e8f8f6c27affa6f2067c2ab044b0997b9033d0a9', '[\"*\"]', NULL, '2022-05-22 07:36:26', '2022-05-22 07:36:26'),
+(36, 'App\\Models\\User', 1, 'API Token', 'cb9bcf4b0b8821289df37c0deaa304b1a94a5b38a7464a9dfda77109c9e6b8e1', '[\"*\"]', NULL, '2022-05-22 07:40:56', '2022-05-22 07:40:56'),
+(37, 'App\\Models\\User', 1, 'API Token', '039c3c2b49c20179b99d82ef9623f106ba6c363850c4d017517e9c06e4c0017d', '[\"*\"]', NULL, '2022-05-22 07:45:49', '2022-05-22 07:45:49'),
+(38, 'App\\Models\\User', 6, 'API Token', '8758c0fd1d8625ba55cd3d7feb490e511c9916a87c2208a7a47e753838a97981', '[\"*\"]', NULL, '2022-05-22 08:18:57', '2022-05-22 08:18:57'),
+(39, 'App\\Models\\User', 6, 'API Token', '246195c9ead62cd9e4b92d9204056b1e5de2827161fb2724c4a5514fb48ce674', '[\"*\"]', NULL, '2022-05-22 08:28:11', '2022-05-22 08:28:11'),
+(40, 'App\\Models\\User', 1, 'API Token', 'e4f02a10e1088710530168371763657459730ff5d21b5dd87001dd68f657aa5d', '[\"*\"]', NULL, '2022-05-22 08:28:20', '2022-05-22 08:28:20');
 
 -- --------------------------------------------------------
 
@@ -338,7 +371,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `role`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Customer One', 'user', 'customer1@example.com', '2022-05-17 02:03:31', '$2y$10$RzOTwyoWIec7EBny5QN.h..fOLBFjA1l5louIOhAPBboKyFuKTUBW', NULL, '2022-05-17 02:03:31', '2022-05-17 02:03:31'),
-(2, 'Customer Twp', 'user', 'customer2@example.com', '2022-05-17 02:04:05', '$2y$10$NmOPM/9A2S1/HkaskZp/1eIwxe02NJqk9HAjvWGe9w.LoJWZ9z/my', NULL, '2022-05-17 02:04:05', '2022-05-17 02:04:05'),
+(2, 'Customer Two', 'user', 'customer2@example.com', '2022-05-17 02:04:05', '$2y$10$NmOPM/9A2S1/HkaskZp/1eIwxe02NJqk9HAjvWGe9w.LoJWZ9z/my', NULL, '2022-05-17 02:04:05', '2022-05-17 02:04:05'),
 (3, 'Customer Three', 'user', 'customer3@example.com', '2022-05-17 02:04:12', '$2y$10$oTVOjS5ISrsDmttMDf2ZhucZuIRZPNrvvOandxjrcrnM94lU43ER2', NULL, '2022-05-17 02:04:12', '2022-05-17 02:04:12'),
 (4, 'Customer Four', 'user', 'customer4@example.com', '2022-05-17 02:04:34', '$2y$10$OpkA9II/qPv5uz3R5Rq9FObxxe1YW2s3LIT6D.6nPAgFnRRciiOq.', NULL, '2022-05-17 02:04:34', '2022-05-17 02:04:34'),
 (5, 'Customer Five', 'user', 'customer5@example.com', '2022-05-17 02:04:49', '$2y$10$f8jt2lFJfxknQlMOibCpXemPtGQv0p3EsOCj99H90FytFl46onCii', NULL, '2022-05-17 02:04:49', '2022-05-17 02:04:49'),
@@ -365,10 +398,10 @@ CREATE TABLE `user_wallets` (
 --
 
 INSERT INTO `user_wallets` (`id`, `user_id`, `wallet_number`, `default_currency`, `balance`, `created_at`, `updated_at`) VALUES
-(1, 1, '810594585302', 'eur', '848.35', '2022-05-17 02:03:31', '2022-05-17 03:33:42'),
+(1, 1, '810594585302', 'inr', '842.06', '2022-05-17 02:03:31', '2022-05-22 08:28:28'),
 (2, 2, '414836937834', 'gpb', '847.93', '2022-05-17 02:04:05', '2022-05-17 03:34:44'),
-(3, 3, '890203377872', 'bdt', '786.27', '2022-05-17 02:04:12', '2022-05-17 03:34:44'),
-(4, 4, '498122566243', 'inr', '465.62', '2022-05-17 02:04:34', '2022-05-17 03:28:41'),
+(3, 3, '890203377872', 'bdt', '850.43', '2022-05-17 02:04:12', '2022-05-21 13:10:50'),
+(4, 4, '498122566243', 'inr', '844.22', '2022-05-17 02:04:34', '2022-05-21 16:43:10'),
 (5, 5, '745441288685', 'pkr', '1000.00', '2022-05-17 02:04:49', '2022-05-17 02:04:49');
 
 -- --------------------------------------------------------
@@ -408,7 +441,10 @@ INSERT INTO `user_wallet_transactions` (`id`, `transaction_number`, `sender_id`,
 (11, 'jhok1zoiye7hcgrr', 3, 1, 'transfer', 'bdt', '0.73', '64.00', '2022-05-17 03:33:42', '2022-05-17 03:33:42'),
 (12, 'jq3vx5zdgizilm1d', 3, 2, 'transfer', 'bdt', '1.24', '109.00', '2022-05-17 03:34:03', '2022-05-17 03:34:03'),
 (13, 'etjo5ginqamd2imn', 3, 2, 'transfer', 'bdt', '28.55', '2500.00', '2022-05-17 03:34:15', '2022-05-17 03:34:15'),
-(14, 'cswgmy6gp0hkh472', 3, 2, 'transfer', 'bdt', '30.83', '2700.00', '2022-05-17 03:34:44', '2022-05-17 03:34:44');
+(14, 'cswgmy6gp0hkh472', 3, 2, 'transfer', 'bdt', '30.83', '2700.00', '2022-05-17 03:34:44', '2022-05-17 03:34:44'),
+(16, '1jtjarybnualft4b', 1, 3, 'transfer', 'eur', '2.08', '2.00', '2022-05-21 13:10:50', '2022-05-21 13:10:50'),
+(17, 'if2dp4livpvcook1', 1, 4, 'transfer', 'eur', '3.13', '3.00', '2022-05-21 13:14:22', '2022-05-21 13:14:22'),
+(18, 'yg3shoxsig7g7aqy', 1, 4, 'transfer', 'pkr', '1.08', '210.00', '2022-05-21 16:43:10', '2022-05-21 16:43:10');
 
 --
 -- Indexes for dumped tables
@@ -480,7 +516,7 @@ ALTER TABLE `user_wallet_transactions`
 -- AUTO_INCREMENT for table `currencies`
 --
 ALTER TABLE `currencies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `exchange_rates`
@@ -504,7 +540,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -522,7 +558,7 @@ ALTER TABLE `user_wallets`
 -- AUTO_INCREMENT for table `user_wallet_transactions`
 --
 ALTER TABLE `user_wallet_transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
