@@ -35,7 +35,7 @@ class TransactionController extends Controller
                 'user'   => null,
                 'message'   => 'No user with most transaction is found'
             ],
-            404
+            200
         );
     }
 
@@ -63,7 +63,7 @@ class TransactionController extends Controller
                     'transaction'   => null,
                     'message'   => 'User not found'
                 ],
-                404
+                200
             );
         }
 
@@ -98,7 +98,7 @@ class TransactionController extends Controller
                     'transaction'   => null,
                     'message'   => 'No transaction is found with such query'
                 ],
-                404
+                200
             );
         }
 

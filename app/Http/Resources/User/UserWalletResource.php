@@ -16,6 +16,7 @@ class UserWalletResource extends JsonResource
     public function toArray($request)
     {
         return [            
+            'wallet_number' => $this->wallet_number,
             'balance' => $this->balance,            
             'default_currency' => $this->default_currency,
             'balance_in_default_currency' => CurrencyConversionUtility::convert_from_usd($this->balance,$this->default_currency) ,                       

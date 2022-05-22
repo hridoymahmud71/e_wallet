@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TransactionRepository from "../../../../../repositories/admin/TransactionRepository";
+import Shimmer from "react-shimmer-effect";
 
 function TopConverter() {
     const [topConverter, setTopConverter] = useState(null);
@@ -35,13 +36,13 @@ function TopConverter() {
 
     return (
         <>
-            {topConverter == null && !setTopConverterLoaded && (
+            {topConverter == null && !topConverterLoaded && (
                 <Shimmer>
                     <div className="h-28 bg-gray-400"></div>
                 </Shimmer>
             )}
 
-            {topConverter == null && setTopConverterLoaded && (
+            {topConverter == null && topConverterLoaded && (
                 <div className="h-28 flex items-center justify-center">
                     <div className="block mb-2 text-sm font-medium text-gray-600 mx-auto">
                         No Top Converter Found
@@ -49,7 +50,7 @@ function TopConverter() {
                 </div>
             )}
 
-            {topConverter != null && setTopConverterLoaded && (
+            {topConverter != null && topConverterLoaded && (
                 <div className="bg-white rounded-lg overflow-hidden shadow-2xl">
                     <div className="p-8 flex flex-col items-center">
                         <div className="block mb-2 text-lg font-medium text-gray-800">
