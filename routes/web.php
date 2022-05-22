@@ -20,3 +20,4 @@ Route::get('/demo/create-admin/{email}/{password}/{signal}', [DemoController::cl
 
 Route::get('/', [FrontendController::class, 'init_frontend'])->name('frontend.init');
 Route::get('/{slug}', [FrontendController::class, 'init_frontend'])->name('frontend.init');
+Route::get('/{slug}/{slug2}', [FrontendController::class, 'init_frontend'])->name('frontend.init');
