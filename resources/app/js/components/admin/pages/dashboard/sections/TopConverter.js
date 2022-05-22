@@ -60,7 +60,7 @@ function TopConverter() {
                             {`Conversion used : ${topConverter.transaction.count} times`}
                         </div>
                         <div className="block text-md font-medium text-gray-600">
-                            {`Converded Upto : ${topConverter.transaction.total} USD`}
+                            {`Converted Upto : ${topConverter.transaction.total} USD`}
                         </div>
                     </div>
                 </div>
