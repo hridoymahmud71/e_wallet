@@ -11,7 +11,7 @@ function Home() {
     return (
         <>
             <div className="flex flex-col min-h-screen">
-                <div className="container mx-auto p-8 h-screen">
+                <div className="container mx-auto px-8 pt-8 pb-24 min-h-screen">
                     <div className="max-w-md w-full mx-auto">
                         <h1 className="text-4xl text-center mb-8 font-thin">
                             Home
@@ -23,8 +23,6 @@ function Home() {
                     </div>
                 </div>
 
-                {/* to match bottombar height */}
-                <div className="h-20"></div>
                 <Bottombar />
             </div>
         </>

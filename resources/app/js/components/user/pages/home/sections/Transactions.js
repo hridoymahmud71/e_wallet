@@ -63,33 +63,40 @@ function Transactions() {
                 </div>
             )}
             {listLoaded && list.length > 0 && (
-                <div className="">
-                    {list.map((transaction, index) => (
-                        <TransactionBox transaction={transaction} key={index} />
-                    ))}
-                    {loadingMore && (
-                        <div className="text-center text-gray-600 mt-4">
-                            Loading more
-                        </div>
-                    )}
-                    {!loadingMore && hasMoreData && (
-                        <div
-                            className="text-right font semi-bold cursor-pointer text-gray-600 mt-4"
-                            onClick={() => fetchData()}
-                        >
-                            See more
-                        </div>
-                    )}
+                <>
+                    <div className="">
+                        {list.map((transaction, index) => (
+                            <TransactionBox
+                                transaction={transaction}
+                                key={index}
+                            />
+                        ))}
+                    </div>
+                    <div>
+                        {loadingMore && (
+                            <div className="text-center text-gray-600 mt-4">
+                                Loading more
+                            </div>
+                        )}
+                        {!loadingMore && hasMoreData && (
+                            <div
+                                className="text-right font semi-bold cursor-pointer text-gray-600 mt-4"
+                                onClick={() => fetchData()}
+                            >
+                                See more
+                            </div>
+                        )}
 
-                    {!loadingMore && !hasMoreData && (
-                        <div
-                            className="text-center cr text-gray-600 mt-4"
-                            onClick={() => fetchData()}
-                        >
-                            No more data
-                        </div>
-                    )}
-                </div>
+                        {!loadingMore && !hasMoreData && (
+                            <div
+                                className="text-center cr text-gray-600 mt-4"
+                                onClick={() => fetchData()}
+                            >
+                                No more data
+                            </div>
+                        )}
+                    </div>
+                </>
             )}
         </>
     );
